@@ -35,6 +35,8 @@ console.log("Travel Type: " + travelType);
 let distance = 100;
 let time = 0;
 let cost = 0;
+let costBar = "Cost: ";
+let timeBar = "Time: ";
 
 if (travelType === "foot") {
     console.log("Walking is free! Speed is 3mph.");
@@ -64,3 +66,33 @@ if (travelType === "foot") {
 }
 
 console.log(`Traveling ${distance} miles by ${travelType} took ${time} hours and cost $${cost}!`);
+
+for (let i = 0; i < cost; i++) {
+    costBar += "$";
+}
+console.log(costBar);
+
+for (let i = 0; i < time; i++) {
+    timeBar += "/";
+}
+console.log(timeBar);
+
+if (travelType === "car") {
+    var meterCostRemaining = 1.00;
+    while (meterCostRemaining > 0) {
+        let coin = prompt(`$${meterCostRemaining} remaining. Type a coin to insert.`);
+        if (coin === "penny") {
+            meterCostRemaining -= .01;
+        } else if (coin === "nickel") {
+            meterCostRemaining -= 0.05;
+        } else if (coin === "dime") {
+            meterCostRemaining -= 0.10;
+        } else if (coin === "quarter") {
+            meterCostRemaining -= 0.25;
+        } else {
+            meterCostRemaining -= 0;
+        }
+        console.log("Meter cost remaining: " + meterCostRemaining);
+    }
+      console.log("You have paid the parking meter.");
+}
